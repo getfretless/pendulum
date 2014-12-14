@@ -7,6 +7,7 @@ function canvas() {
   var height = 5;
   var multiplier = 20;
   var timeModifier = 0.02;
+  var color = 'black';
 
   function stop() {
     clearInterval(interval);
@@ -16,6 +17,8 @@ function canvas() {
     var time = 0
     var redraw = function () {
       context.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+        context.fillStyle = color;
       for (var i=0; i < n; i++) {
         x = myCanvas.width / 2 + Math.sin(time * i) * multiplier;
         y = i/n * myCanvas.height;
@@ -34,6 +37,7 @@ function canvas() {
     height = fields.height.value;
     multiplier = fields.multiplier.value;
     timeModifier = parseFloat(fields.time_modifier.value) / 100;
+    color = fields.color.value;
   }
 
   document.querySelector('form').onsubmit = update;
