@@ -8,9 +8,9 @@ function canvas() {
   }
 
   function drawManyRectangles() {
-    var n = 20;
-    width = 20;
-    height = 5;
+    var n = 100;
+    width = 2;
+    height = 2;
     var time = 0;
     var redraw = function () {
       context.clearRect(0, 0, myCanvas.width, myCanvas.height);
