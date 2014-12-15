@@ -7,7 +7,8 @@ function canvas() {
   var height = 5;
   var multiplier = 20;
   var timeModifier = 0.02;
-  var color = 'black';
+  var color = 'red';
+  var color2 = 'blue';
 
   function stop() {
     clearInterval(interval);
@@ -18,11 +19,14 @@ function canvas() {
     var redraw = function () {
       context.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
-        context.fillStyle = color;
       for (var i=0; i < n; i++) {
         x = myCanvas.width / 2 + Math.sin(time * i) * multiplier;
+        var x2 = myCanvas.width - x;
         y = i/n * myCanvas.height;
+        context.fillStyle = color;
         context.fillRect(x, y, width, height);
+        context.fillStyle = color2;
+        context.fillRect(x2, y, width, height);
       }
       time += timeModifier;
     }
@@ -38,6 +42,7 @@ function canvas() {
     multiplier = fields.multiplier.value;
     timeModifier = parseFloat(fields.time_modifier.value) / 100;
     color = fields.color.value;
+    color2 = fields.color2.value;
   }
 
   document.querySelector('form').onsubmit = update;
